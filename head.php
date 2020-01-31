@@ -30,4 +30,6 @@ require_once _WEB_PATH.'/smarty.php';
 #引入資料庫設定
 // require_once _WEB_PATH.'/sqlConfig.php';
 #引入設定檔
-// require_once _WEB_PATH . '/function.php';
+require_once _WEB_PATH . '/function.php';
+
+$_SESSION['jerry'] = isset($_SESSION['jerry']) ? $_SESSION['jerry'] : false;
