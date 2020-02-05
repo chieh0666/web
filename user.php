@@ -37,6 +37,8 @@ $smarty->display('user.tpl');
 /*---- 函數區-----*/
 function logout(){
   $_SESSION["jerry"]=false;
+  setcookie("name", "", time() - 3600 * 24 * 365);
+  setcookie("token", "", time() - 3600 * 24 * 365);
 }
 function op_form(){
   global $smarty;
@@ -46,9 +48,16 @@ function login(){
   global $smarty;
     $name="jerry";
     $pass="0000";
+    $token="xxxxxx";
    
     if($name == $_POST['name'] and $pass == $_POST['pass']){
-        $_SESSION['jerry'] = true;     
+        $_SESSION['jerry'] = true;
+        $_POST["remember"] = isset($_POST["remember"]) ? $_POST["remember"] : "";
+        
+        if($_POST["remember"]){
+          setcookie("name", $name, time() + 3600 * 24 * 365);
+          setcookie("token", $token, time() + 3600 * 24 * 365);
+        }
         header("location:index.php");//注意前面不可以有輸出
     }else{      
       header("location:user.php");//注意前面不可以有輸出

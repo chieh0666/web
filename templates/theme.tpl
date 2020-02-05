@@ -40,14 +40,26 @@
             <a class="nav-link js-scroll-trigger" href="#about">關於我們</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#services">服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">產品</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">聯絡我們</a>
           </li>
+          <{if $smarty.session.jerry}>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php">管理後台</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php?op=logout">登出</a>
+          </li>
+          <{else}>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php">登入</a>
+          </li>
+          <{/if}>
         </ul>
       </div>
     </div>

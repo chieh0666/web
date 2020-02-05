@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-03 02:29:42
+/* Smarty version 3.1.34-dev-7, created on 2020-02-05 07:41:42
   from 'E:\ugm\xampp\htdocs\web\templates\theme.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e377786a84a07_58839352',
+  'unifunc' => 'content_5e3a63a6aeebe6_01575251',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '150284a0de410a4aa4dad8dff4d416ab5e386332' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\theme.tpl',
-      1 => 1580439830,
+      1 => 1580884902,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e377786a84a07_58839352 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e3a63a6aeebe6_01575251 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -66,14 +66,26 @@ css/creative.min.css" rel="stylesheet">
             <a class="nav-link js-scroll-trigger" href="#about">關於我們</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#services">服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">產品</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">聯絡我們</a>
           </li>
+          <?php if ($_SESSION['jerry']) {?>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php">管理後台</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php?op=logout">登出</a>
+          </li>
+          <?php } else { ?>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php">登入</a>
+          </li>
+          <?php }?>
         </ul>
       </div>
     </div>
