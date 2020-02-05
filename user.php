@@ -16,11 +16,15 @@ switch ($op){
     $msg = login();
     header("location:index.php");//注意前面不可以有輸出
     exit;
- 
+  
+  case "logout" :
+  $msg = logout();
+  header("location:index.php");//注意前面不可以有輸出
+
   default:
-    $op = "op_list";
-    op_list();
-    break;  
+  $op = "op_list";
+  op_list();
+  break;
 }
  
 /*---- 將變數送至樣版----*/
@@ -31,6 +35,9 @@ $smarty->assign("op", $op);
 $smarty->display('user.tpl');
  
 /*---- 函數區-----*/
+function logout(){
+  $_SESSION["jerry"]=false;
+}
 function op_form(){
   global $smarty;
  
