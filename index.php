@@ -5,5 +5,6 @@ require_once 'head.php';
 // die();
 
 
+
 /*---- 程式結尾-----*/
 $smarty->display('theme.tpl');
