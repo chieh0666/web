@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-13 04:09:34
+/* Smarty version 3.1.34-dev-7, created on 2020-02-14 10:21:31
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\reg_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e44bdee8c2079_45814791',
+  'unifunc' => 'content_5e46669b83b6a6_07499277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0dc77460477459ad50541cd6bebfefa73eab0e18' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\tpl\\reg_form.tpl',
-      1 => 1581563368,
+      1 => 1581672020,
       2 => 'file',
     ),
   ),
@@ -20,55 +20,49 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e44bdee8c2079_45814791 (Smarty_Internal_Template $_smarty_tpl) {
-?><style>
-  .error{
-    color: #dc3545
-  }
-</style>
-
-<div class="container mt-5">
+function content_5e46669b83b6a6_07499277 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="container mt-5">
   <h1 class="text-center">註冊表單</h1>
   
   <form action="user.php" method="post" id="myForm" class="mb-20" enctype="multipart/form-data">
   
     <div class="row">         
-      <!--帳號-->              
+      <!--帳號-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>帳號<span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="uname" id="uname" value="">
         </div>
       </div>         
-      <!--密碼-->              
+      <!--密碼-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>密碼<span class="text-danger">*</span class="text-danger"></label>
           <input type="password" class="form-control" name="pass" id="pass" value="">
         </div>
       </div>         
-      <!--確認密碼-->              
+      <!--確認密碼-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>確認密碼<span class="text-danger">*</span class="text-danger"></label>
           <input type="password" class="form-control" name="chk_pass" id="chk_pass" value="">
         </div>
       </div>         
-      <!--姓名-->              
+      <!--姓名-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>姓名<span class="text-danger">*</span class="text-danger"></label>
           <input type="text" class="form-control" name="name" id="name" value="">
         </div>
       </div>         
-      <!--電話-->              
+      <!--電話-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>電話<span class="text-danger">*</span class="text-danger"></label>
           <input type="text" class="form-control" name="tel" id="tel" value="">
         </div>
       </div>             
-      <!--信箱-->              
+      <!--信箱-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>信箱<span class="text-danger">*</span class="text-danger"></label>
@@ -85,51 +79,56 @@ function content_5e44bdee8c2079_45814791 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"><?php echo '</script'; ?>
 >
+  <style>
+    .error{
+      color: #dc3545
+    }
+  </style>
   <?php echo '<script'; ?>
 >
     $(function(){
-      $("#myForm").validate({
+      $("#myForm1").validate({
         submitHandler: function(form) {
             form.submit();
         },
         rules: {
-            'uname' : {
+            "uname" : {
               required: true
             },
-            'pass' : {
+            "pass" : {
               required: true
             },
-            'chk_pass' : {
+            "chk_pass" : {
               equalTo:"#pass"
             },
-            'name' : {
+            "name" : {
               required: true
             },
-            'tel' : {
+            "tel" : {
               required: true
             },
-            'email' : {
+            "email" : {
               required: true,
               email: true
             }
         },
         messages: {
-          'uname' : {
+          "uname" : {
             required: "必填"
           },
-          'pass' : {
+          "pass" : {
             required: "必填"
           },
-          'chk_pass' : {
+          "chk_pass" : {
             equalTo:"密碼不一致"
           },
-          'name' : {
+          "name" : {
             required: "必填"
           },
-          'tel' : {
+          "tel" : {
             required: "必填"
           },
-          'email' : {
+          "email" : {
             required: "必填",
             email: "email格式不正確"
           }

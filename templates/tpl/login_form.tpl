@@ -40,54 +40,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">
             會員登入
         </button>
-        <div>您還沒還沒註冊嗎？請 <a href="user.php?op=reg_form">點選此處註冊您的新帳號</a>。</div>
-    </form>
-</div>
-<!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
-<iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='<{$xoAppUrl}>ok.html'}"></iframe>
-<div class="container mt-5">
-    <h1 class="text-center">聯絡我們</h1>
-    <form role="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScUepSPrqEnh9giCYvklI77zvs-6e7VRejCDE9LGYsklyJxHw/formResponse" method="post" id="myForm" target="returnWin">
-			<div class="row">
-				<!--姓名-->              
-				<div class="col-sm-4">
-					<div class="form-group">
-						<label>
-							<span class="title">姓名</span>
-						</label>
-						<input type="text" class="form-control" name="entry.1689282052" id="name" value="">
-					</div>
-				</div>          
-				<!--電話-->              
-				<div class="col-sm-4">
-					<div class="form-group">
-						<label>
-							<span class="title">電話</span>
-						</label>
-						<input type="text" class="form-control" name="entry.238838802" id="tel" value="">
-					</div>
-				</div>          
-				<!--email-->              
-				<div class="col-sm-4">
-					<div class="form-group">
-						<label>
-							<span class="title">email</span>
-						</label>
-						<input type="text" class="form-control" name="entry.263970123" id="email" value="">
-					</div>
-			</div> 
-		</div>
-		<div class="row">
-			<div class="col-sm-12">  
-				<!-- 備註 -->
-				<div class="form-group">
-					<label class="control-label">備註</label>
-					<textarea class="form-control" rows="4" id="contact" name="entry.1638206565"></textarea>
-				</div>
-			</div>
-		</div>
-			<div class="text-center pb-3">
-				<button type="submit" class="btn btn-primary">送出</button>
-			</div>
+        <div>您還沒還沒註冊嗎？請 <a href="index.php?op=reg_form">點選此處註冊您的新帳號</a>。</div>
     </form>
 </div>

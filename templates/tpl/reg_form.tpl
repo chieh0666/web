@@ -1,51 +1,45 @@
-<style>
-  .error{
-    color: #dc3545
-  }
-</style>
-
 <div class="container mt-5">
   <h1 class="text-center">註冊表單</h1>
   
   <form action="user.php" method="post" id="myForm" class="mb-20" enctype="multipart/form-data">
   
     <div class="row">         
-      <!--帳號-->              
+      <!--帳號-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>帳號<span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="uname" id="uname" value="">
         </div>
       </div>         
-      <!--密碼-->              
+      <!--密碼-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>密碼<span class="text-danger">*</span class="text-danger"></label>
           <input type="password" class="form-control" name="pass" id="pass" value="">
         </div>
       </div>         
-      <!--確認密碼-->              
+      <!--確認密碼-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>確認密碼<span class="text-danger">*</span class="text-danger"></label>
           <input type="password" class="form-control" name="chk_pass" id="chk_pass" value="">
         </div>
       </div>         
-      <!--姓名-->              
+      <!--姓名-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>姓名<span class="text-danger">*</span class="text-danger"></label>
           <input type="text" class="form-control" name="name" id="name" value="">
         </div>
       </div>         
-      <!--電話-->              
+      <!--電話-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>電話<span class="text-danger">*</span class="text-danger"></label>
           <input type="text" class="form-control" name="tel" id="tel" value="">
         </div>
       </div>             
-      <!--信箱-->              
+      <!--信箱-->
       <div class="col-sm-4">
         <div class="form-group">
           <label>信箱<span class="text-danger">*</span class="text-danger"></label>
@@ -60,6 +54,11 @@
   </form>
   <!-- 表單驗證 -->
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+  <style>
+    .error{
+      color: #dc3545
+    }
+  </style>
   <script>
     $(function(){
       $("#myForm").validate({
@@ -67,43 +66,43 @@
             form.submit();
         },
         rules: {
-            'uname' : {
+            "uname" : {
               required: true
             },
-            'pass' : {
+            "pass" : {
               required: true
             },
-            'chk_pass' : {
+            "chk_pass" : {
               equalTo:"#pass"
             },
-            'name' : {
+            "name" : {
               required: true
             },
-            'tel' : {
+            "tel" : {
               required: true
             },
-            'email' : {
+            "email" : {
               required: true,
               email: true
             }
         },
         messages: {
-          'uname' : {
+          "uname" : {
             required: "必填"
           },
-          'pass' : {
+          "pass" : {
             required: "必填"
           },
-          'chk_pass' : {
+          "chk_pass" : {
             equalTo:"密碼不一致"
           },
-          'name' : {
+          "name" : {
             required: "必填"
           },
-          'tel' : {
+          "tel" : {
             required: "必填"
           },
-          'email' : {
+          "email" : {
             required: "必填",
             email: "email格式不正確"
           }

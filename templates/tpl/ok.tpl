@@ -8,16 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>點餐成功</title>
+    <title>留言成功</title>
   </head>
   <body>
     <div class="container mt-5 ">
       <div class="jumbotron">
-        <h1 class="display-4 text-center">點餐成功</h1>
-        <p class="lead text-center">正在確認點餐內容及製作餐點。。。</p>
+        <h1 class="display-4 text-center">留言已送出</h1>
+        <p class="lead text-center">已收到您的留言，感謝建議!</p>
         <hr class="my-4">
         <p class="text-center">標準化有限公司</p>
-        <a class="btn btn-success btn-block" href="user.php" role="button">點餐</a>
+        <a class="btn btn-success btn-block" href="index.php" role="button">回首頁</a>
         <a class="btn btn-primary btn-block" target="_blank" href="https://www.facebook.com/jinyuanhui/?modal=admin_todo_tour" role="button">官網</a>
       </div>
     </div>

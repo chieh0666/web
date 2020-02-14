@@ -12,7 +12,7 @@
           title: "<{$message}>",
           showConfirmButton: false,
           timer: "<{$time}>"
-        })
+          })
         }
       </script>
     <{/if}>

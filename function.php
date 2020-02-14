@@ -35,6 +35,16 @@ function system_CleanVars(&$global, $key, $default = '', $type = 'int')
 //   header("location:{$url}");
 //   exit;
 // }
+/*--- 轉向函數 ---*/
+function redirect_header($url = "index.php", $message = '訊息', $time = 2000 , $status = "success") {
+  $_SESSION['redirect'] = true;
+  $_SESSION['message'] = $message;
+  $_SESSION['time'] = $time;
+  $_SESSION['status'] = $status;
+  header("location:{$url}");//注意前面不可以有輸出
+  exit;
+}
+
 ###############################################################################
 #  取得目前網址
 ###############################################################################
@@ -84,4 +94,24 @@ if (!function_exists("mk_dir")) {
       mkdir($dir, 0777);
     }
   }
+}
+
+//檢查並傳回欲拿到資料使用的變數
+//$title = '' 則非必填
+function db_filter($var, $title = '', $filter = ''){
+  global $db;
+  #寫入資料庫過濾
+  $var = $db->real_escape_string($var);
+
+  if($title){
+    if($var === "")redirect_header(_WEB_URL, $title . '為必填！', 3000);
+  }
+
+  if ($filter) {
+    $var = filter_var($var, $filter);
+    if (!$var) {
+      redirect_header(_WEB_URL, "不合法的{$title}", 3000);
+    }
+  }
+  return $var;
 }
