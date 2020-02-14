@@ -18,10 +18,18 @@
     <title>會員管理</title>
   </head>
   <body>
-		<{if $smarty.session.jerry}>
+    <{* 轉向樣板 *}>
+    <{include file="tpl/redirect.tpl"}>
+    <{if $smarty.session.jerry}>
+      <{* 管理員 *}>
 			<{include file="tpl/admin.tpl"}>
 		<{else}>
-			<{include file="tpl/login.tpl"}>
+      <{* 訪客 *}>
+      <{if $op == "login_form"}>
+        <{include file="tpl/login_form.tpl"}>
+      <{else if $op == "reg_form"}>
+        <{include file="tpl/reg_form.tpl"}>
+      <{/if}>
     <{/if}>
   </body>
 </html>

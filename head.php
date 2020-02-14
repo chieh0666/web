@@ -40,3 +40,19 @@ if($_SESSION['jerry']){
     $_SESSION["jerry"] = true;
   }
 }
+
+#轉向用
+$_SESSION['redirect'] = isset($_SESSION['redirect']) ? $_SESSION['redirect'] : "";
+$_SESSION['message'] = isset($_SESSION['message']) ? $_SESSION['message'] : "";
+$_SESSION['time'] = isset($_SESSION['time']) ? $_SESSION['time'] : "";
+$_SESSION['status'] = isset($_SESSION['status']) ? $_SESSION['status'] : "";
+
+$smarty -> assign("redirect", $_SESSION['redirect']);
+$smarty -> assign("message", $_SESSION['message']);
+$smarty -> assign("time", $_SESSION['time']);
+$smarty -> assign("status", $_SESSION['status']);
+#清除SESSION
+$_SESSION['redirect'] = "";
+$_SESSION['message'] =  "";
+$_SESSION['time'] =  "";
+$_SESSION['status'] =  "";

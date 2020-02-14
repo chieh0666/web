@@ -30,11 +30,11 @@ function system_CleanVars(&$global, $key, $default = '', $type = 'int')
 ###############################################################################
 #  轉向函數
 ###############################################################################
-function redirect_header($url = "", $time = 3000, $message = '已轉向！！') {
-  $_SESSION['redirect'] = "\$.jGrowl('{$message}', {  life:{$time} , position: 'center', speed: 'slow' });";
-  header("location:{$url}");
-  exit;
-}
+// function redirect_header($url = "", $time = 3000, $message = '已轉向！！') {
+//   $_SESSION['redirect'] = "\$.jGrowl('{$message}', {  life:{$time} , position: 'center', speed: 'slow' });";
+//   header("location:{$url}");
+//   exit;
+// }
 ###############################################################################
 #  取得目前網址
 ###############################################################################
