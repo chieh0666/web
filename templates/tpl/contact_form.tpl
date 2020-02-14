@@ -1,7 +1,6 @@
-
 <!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
 <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='index.php?op=ok'}"></iframe>
-<div class="container mt-5 ">
+<div class="container" style="margin: 100px auto 0px auto;">
     <h1 class="text-center">聯絡我們</h1>
     <form role="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScUepSPrqEnh9giCYvklI77zvs-6e7VRejCDE9LGYsklyJxHw/formResponse" method="post" id="myForm" target="returnWin">
 			<div class="row">

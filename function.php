@@ -104,13 +104,13 @@ function db_filter($var, $title = '', $filter = ''){
   $var = $db->real_escape_string($var);
 
   if($title){
-    if($var === "")redirect_header(_WEB_URL, $title . '為必填！', 3000);
+    if($var === "")redirect_header("index.php?op=reg_form", $title . '為必填！', 2000, "warning");
   }
 
   if ($filter) {
     $var = filter_var($var, $filter);
     if (!$var) {
-      redirect_header(_WEB_URL, "不合法的{$title}", 3000);
+      redirect_header("index.php?op=reg_form", "不合法的{$title}", 2000, "warning");
     }
   }
   return $var;

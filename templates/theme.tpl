@@ -57,4 +57,7 @@
 
 </body>
 
+  <!-- Custom scripts for this template -->
+  <script src="<{$xoImgUrl}>js/creative.min.js"></script>
+
 </html>

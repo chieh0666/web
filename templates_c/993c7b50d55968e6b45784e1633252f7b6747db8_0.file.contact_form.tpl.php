@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-14 09:31:49
+/* Smarty version 3.1.34-dev-7, created on 2020-02-14 16:10:39
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\contact_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e465af5aa2499_16996445',
+  'unifunc' => 'content_5e46b86fdc8922_84576976',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '993c7b50d55968e6b45784e1633252f7b6747db8' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\tpl\\contact_form.tpl',
-      1 => 1581669100,
+      1 => 1581693040,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e465af5aa2499_16996445 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
+function content_5e46b86fdc8922_84576976 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
 <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='index.php?op=ok'}"></iframe>
-<div class="container mt-5 ">
+<div class="container" style="margin: 100px auto 0px auto;">
     <h1 class="text-center">聯絡我們</h1>
     <form role="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScUepSPrqEnh9giCYvklI77zvs-6e7VRejCDE9LGYsklyJxHw/formResponse" method="post" id="myForm" target="returnWin">
 			<div class="row">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-14 09:15:44
+/* Smarty version 3.1.34-dev-7, created on 2020-02-14 16:18:22
   from 'E:\ugm\xampp\htdocs\web\templates\theme.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e465730645eb0_47839102',
+  'unifunc' => 'content_5e46ba3e15e104_65331096',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '150284a0de410a4aa4dad8dff4d416ab5e386332' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\theme.tpl',
-      1 => 1581668142,
+      1 => 1581693452,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e465730645eb0_47839102 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e46ba3e15e104_65331096 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -91,6 +91,12 @@ css/creative.min.css" rel="stylesheet">
 ?>
 
 </body>
+
+  <!-- Custom scripts for this template -->
+  <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['xoImgUrl']->value;?>
+js/creative.min.js"><?php echo '</script'; ?>
+>
 
 </html>
 <?php }
