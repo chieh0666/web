@@ -27,7 +27,7 @@
             <a class="nav-link js-scroll-trigger" href="user.php">管理後台</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="user.php?op=logout">登出</a>
+            <a class="nav-link js-scroll-trigger" href="index.php?op=logout">登出</a>
           </li>
           <{else}>
           <li class="nav-item">
