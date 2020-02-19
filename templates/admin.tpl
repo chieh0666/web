@@ -3,10 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<{$xoImgUrl}>bootstrap/bootstrap.min.css" />
@@ -16,9 +13,12 @@
     <script src="<{$xoImgUrl}>bootstrap/popper.min.js"></script>
     <script src="<{$xoImgUrl}>bootstrap/bootstrap.min.js"></script>
     <title>會員管理</title>
+    <!-- Font Awesome Icons -->
+    <link href="<{$xoImgUrl}>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <{* 轉向樣板 *}>
+    <{include file="tpl/redirect.tpl"}>
 
     <h1 class="text-center mt-2">管理者後台</h1>
     <div class="container">

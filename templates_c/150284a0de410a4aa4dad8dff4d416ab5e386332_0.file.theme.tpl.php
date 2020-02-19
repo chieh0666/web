@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-15 03:34:03
+/* Smarty version 3.1.34-dev-7, created on 2020-02-19 09:21:20
   from 'E:\ugm\xampp\htdocs\web\templates\theme.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e47589b78dec3_35495020',
+  'unifunc' => 'content_5e4cf000ab0633_08762850',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '150284a0de410a4aa4dad8dff4d416ab5e386332' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\theme.tpl',
-      1 => 1581734042,
+      1 => 1582097394,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e47589b78dec3_35495020 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e4cf000ab0633_08762850 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +41,6 @@ function content_5e47589b78dec3_35495020 (Smarty_Internal_Template $_smarty_tpl)
   <meta name="author" content="">
 
   <title>Creative - Start Bootstrap Theme</title>
-
   <!-- Font Awesome Icons -->
   <link href="<?php echo $_smarty_tpl->tpl_vars['xoImgUrl']->value;?>
 vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,7 +56,7 @@ vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="<?php echo $_smarty_tpl->tpl_vars['xoImgUrl']->value;?>
 css/creative.min.css" rel="stylesheet">
-  
+
     <?php $_smarty_tpl->_subTemplateRender("file:tpl/header_js.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

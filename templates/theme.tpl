@@ -9,7 +9,6 @@
   <meta name="author" content="">
 
   <title>Creative - Start Bootstrap Theme</title>
-
   <!-- Font Awesome Icons -->
   <link href="<{$xoImgUrl}>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -22,7 +21,7 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="<{$xoImgUrl}>css/creative.min.css" rel="stylesheet">
-  
+
   <{* header_js.tpl *}>
   <{include file="tpl/header_js.tpl"}>
 
