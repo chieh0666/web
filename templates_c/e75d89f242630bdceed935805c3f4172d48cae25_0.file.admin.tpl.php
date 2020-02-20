@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-19 09:54:09
+/* Smarty version 3.1.34-dev-7, created on 2020-02-20 08:33:20
   from 'E:\ugm\xampp\htdocs\web\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e4cf7b113d704_50716117',
+  'unifunc' => 'content_5e4e3640ca3ed5_92868892',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e75d89f242630bdceed935805c3f4172d48cae25' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\admin.tpl',
-      1 => 1582102430,
+      1 => 1582164196,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tpl/user.tpl' => 1,
   ),
 ),false)) {
-function content_5e4cf7b113d704_50716117 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e4e3640ca3ed5_92868892 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +51,14 @@ bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
     <!-- Font Awesome Icons -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['xoImgUrl']->value;?>
 vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['xoAppUrl']->value;?>
+class/sweetalert2/sweetalert2.min.css">
+    <?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['xoAppUrl']->value;?>
+class/sweetalert2/sweetalert2.min.js"><?php echo '</script'; ?>
+>
   </head>
   <body>
         <?php $_smarty_tpl->_subTemplateRender("file:tpl/redirect.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

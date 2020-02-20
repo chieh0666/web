@@ -11,7 +11,7 @@ switch ($op){
   case "login" :
     $msg = login();
     //(轉向頁面,訊息,時間)
-    redirect_header("index.php", '登入成功', 2000, "success");
+    redirect_header("index.php", $msg, 2000, "success");
     exit;
 
   case "logout" :
@@ -71,28 +71,61 @@ function reg_form(){
 }
 
 function login(){
-  global $smarty;
-    $name="jerry";
-    $pass="0000";
-    $token="xxxxxx";
-   
-    if($name == $_POST['name'] and $pass == $_POST['pass']){
-        $_SESSION['jerry'] = true;
-        $_POST["remember"] = isset($_POST["remember"]) ? $_POST["remember"] : "";
-        
-        if($_POST["remember"]){
-          setcookie("name", $name, time() + 3600 * 24 * 365);
-          setcookie("token", $token, time() + 3600 * 24 * 365);
-        }
-          return "登入成功";
-    }else{
-      redirect_header("index.php?op=login_form", '登入失敗', 2000, "error");
+  global $db;
+
+  #過濾變數
+  $_POST['uname'] = db_filter($_POST['uname'], '帳號');
+  $_POST['pass'] = db_filter($_POST['pass'], '密碼');
+
+  $sql="SELECT *
+        FROM `users`
+        WHERE `uname` = '{$_POST['uname']}'
+  ";
+
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $row = $result->fetch_assoc() or redirect_header("index.php?op=login_form", '帳號錯誤', 2000, "error");
+
+  $row['uname'] = htmlspecialchars($row['uname']); //字串過濾,去除HTML標籤
+  $row['name'] = htmlspecialchars($row['name']); //字串過濾,去除HTML標籤
+  $row['tel'] = htmlspecialchars($row['tel']); //字串過濾,去除HTML標籤
+  $row['email'] = htmlspecialchars($row['email']); //字串過濾,去除HTML標籤
+  $row['uid'] = (int)$row['uid']; //字串過濾,整數
+  $row['kind'] = (int)$row['kind']; //字串過濾,整數
+  $row['pass'] = htmlspecialchars($row['pass']); //字串過濾,去除HTML標籤
+  $row['token'] = htmlspecialchars($row['token']); //字串過濾,去除HTML標籤
+
+  if(password_verify($_POST['pass'], $row['pass'])){
+    $_SESSION['user']['uid'] = $row['uid'];
+    $_SESSION['user']['uname'] = $row['uname'];
+    $_SESSION['user']['name'] = $row['name'];
+    $_SESSION['user']['tel'] = $row['tel'];
+    $_SESSION['user']['email'] = $row['email'];
+    $_SESSION['user']['kind'] = $row['kind'];
+
+    $_POST['remember'] = isset($_POST['remember']) ? $_POST['remember'] : "";
+  
+    if($_POST['remember']){
+      setcookie("uname",$row['uname'], time()+ 3600 * 24 * 365); 
+      setcookie("token", $row['token'], time()+ 3600 * 24 * 365); 
     }
+    return "登入成功";
+  }else{
+    $_SESSION['user']['uid'] = "";
+    $_SESSION['user']['uname'] = "";
+    $_SESSION['user']['name'] = "";
+    $_SESSION['user']['tel'] = "";
+    $_SESSION['user']['email'] = "";
+    $_SESSION['user']['kind'] = "";
+
+    redirect_header("index.php?op=login_form", '登入失敗', 2000, "error");
+  }
 }
 
 function logout(){
-  $_SESSION["jerry"]=false;
-  setcookie("name", "", time() - 3600 * 24 * 365);
+  $_SESSION['user']['kind'] = "";
+
+  // $_SESSION['admin']=false;
+  setcookie("uname", "", time() - 3600 * 24 * 365);
   setcookie("token", "", time() - 3600 * 24 * 365);
 }
 

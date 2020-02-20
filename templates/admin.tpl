@@ -15,6 +15,10 @@
     <title>會員管理</title>
     <!-- Font Awesome Icons -->
     <link href="<{$xoImgUrl}>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="<{$xoAppUrl}>class/sweetalert2/sweetalert2.min.css">
+    <script type="text/javascript" src="<{$xoAppUrl}>class/sweetalert2/sweetalert2.min.js"></script>
   </head>
   <body>
     <{* 轉向樣板 *}>

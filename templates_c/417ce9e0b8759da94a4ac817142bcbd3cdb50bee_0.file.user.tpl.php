@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-19 10:07:53
+/* Smarty version 3.1.34-dev-7, created on 2020-02-20 08:51:55
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e4cfae91df4a6_01315202',
+  'unifunc' => 'content_5e4e3a9b45fc44_93426408',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '417ce9e0b8759da94a4ac817142bcbd3cdb50bee' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\tpl\\user.tpl',
-      1 => 1582102936,
+      1 => 1582185108,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e4cfae91df4a6_01315202 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e4e3a9b45fc44_93426408 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['op']->value == "op_list") {?>
   <table class="table table-striped table-bordered table-hover table-sm">
     <thead class="thead-dark">
@@ -48,10 +48,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
 </td>
           <td><?php echo $_smarty_tpl->tpl_vars['row']->value['email'];?>
 </td>
-          <td><?php if ($_smarty_tpl->tpl_vars['row']->value['kind']) {?><i class="fas fa-user-check"></i><?php }?></td>
+          <td><?php if ($_smarty_tpl->tpl_vars['row']->value['kind'] === 1) {?><i class="fas fa-user-check"></i><?php }?></td>
           <td>
             <a href="user.php?op=op_form&uid=<?php echo $_smarty_tpl->tpl_vars['row']->value['uid'];?>
 "><i class="fas fa-edit"></i></a>
+            <a href="javascript:void(0);" onclick="op_delete(<?php echo $_smarty_tpl->tpl_vars['row']->value['uid'];?>
+);"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
       <?php
@@ -66,6 +68,26 @@ foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </tbody>
   </table>
+  <?php echo '<script'; ?>
+>
+    function op_delete(uid){
+      Swal.fire({
+        title: '你確定要刪除?',
+        text: "你將無法還原它!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '確定',
+        cancelButtonText: '取消'
+      }).then((result) => {
+      if (result.value) {
+        document.location.href="user.php?op=op_delete&uid="+uid;
+      }
+      })
+    }
+  <?php echo '</script'; ?>
+>
 <?php }?>
 
 <?php if ($_smarty_tpl->tpl_vars['op']->value == "op_form") {?>
@@ -80,7 +102,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="form-group">
             <label>帳號<span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="uname" id="uname" value="<?php echo $_smarty_tpl->tpl_vars['row']->value['uname'];?>
-">
+" readonly>
           </div>
         </div>         
         <!--密碼-->
@@ -133,6 +155,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <button type="submit" class="btn btn-primary">送出</button>
       </div>
     </form>
+    
     <!-- 表單驗證 -->
     <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"><?php echo '</script'; ?>

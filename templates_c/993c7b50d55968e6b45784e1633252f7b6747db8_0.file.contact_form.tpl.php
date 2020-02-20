@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-14 16:10:39
+/* Smarty version 3.1.34-dev-7, created on 2020-02-20 08:37:31
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\contact_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e46b86fdc8922_84576976',
+  'unifunc' => 'content_5e4e373bbc05e3_90297671',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e46b86fdc8922_84576976 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e4e373bbc05e3_90297671 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
 <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='index.php?op=ok'}"></iframe>
 <div class="container" style="margin: 100px auto 0px auto;">

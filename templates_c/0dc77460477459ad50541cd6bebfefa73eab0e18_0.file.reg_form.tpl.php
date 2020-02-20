@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-19 09:21:30
+/* Smarty version 3.1.34-dev-7, created on 2020-02-20 08:14:14
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\reg_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e4cf00a784d33_46576547',
+  'unifunc' => 'content_5e4e31c649d949_46861410',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e4cf00a784d33_46576547 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e4e31c649d949_46861410 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container" style="margin: 100px auto 0px auto;">
   <h1 class="text-center">註冊表單</h1>
   

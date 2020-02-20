@@ -3,7 +3,7 @@
 require_once 'head.php';
  
 #沒有權限就踢走
-if(!$_SESSION['jerry'])redirect_header("index.php", '您沒有權限', 2000, "warning");
+if($_SESSION['user']['kind'] !== 1)redirect_header("index.php", '您沒有權限', 2000, "warning");
 
 /* 過濾變數，設定預設值 */
 $op = system_CleanVars($_REQUEST, 'op', 'op_list', 'string');
@@ -11,6 +11,11 @@ $uid = system_CleanVars($_REQUEST, 'uid', '', 'int');
 
 /* 程式流程 */
 switch ($op){
+  case "op_delete" :
+    $msg = op_delete($uid);
+    redirect_header("user.php", $msg, 2000, "success");
+    exit;
+
   case "op_update" :
     $msg = op_update($uid);
     redirect_header("user.php", $msg, 2000, "success");
@@ -35,6 +40,17 @@ $smarty->display('admin.tpl');
  
 /*---- 函數區-----*/
 
+function op_delete($uid){
+  global $db;
+  //print_r($_GET);DIE();
+
+  
+  $sql="DELETE FROM `users`
+        WHERE `uid` = '{$uid}'
+  ";
+  $db->query($sql) or die($db->error() . $sql);
+  return "會員資料刪除成功";
+}
 
 /*=======================
 更新會員函式(寫入資料庫)

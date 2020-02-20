@@ -17,9 +17,10 @@
           <td><{$row.name}></td>
           <td><{$row.tel}></td>
           <td><{$row.email}></td>
-          <td><{if $row.kind}><i class="fas fa-user-check"></i><{/if}></td>
+          <td><{if $row.kind === 1}><i class="fas fa-user-check"></i><{/if}></td>
           <td>
             <a href="user.php?op=op_form&uid=<{$row.uid}>"><i class="fas fa-edit"></i></a>
+            <a href="javascript:void(0);" onclick="op_delete(<{$row.uid}>);"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
       <{foreachelse}>
@@ -29,6 +30,24 @@
       <{/foreach}>
     </tbody>
   </table>
+  <script>
+    function op_delete(uid){
+      Swal.fire({
+        title: '你確定要刪除?',
+        text: "你將無法還原它!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '確定',
+        cancelButtonText: '取消'
+      }).then((result) => {
+      if (result.value) {
+        document.location.href="user.php?op=op_delete&uid="+uid;
+      }
+      })
+    }
+  </script>
 <{/if}>
 
 <{if $op == "op_form"}>
@@ -42,7 +61,7 @@
         <div class="col-sm-4">
           <div class="form-group">
             <label>帳號<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="uname" id="uname" value="<{$row.uname}>">
+            <input type="text" class="form-control" name="uname" id="uname" value="<{$row.uname}>" readonly>
           </div>
         </div>         
         <!--密碼-->
@@ -91,6 +110,7 @@
         <button type="submit" class="btn btn-primary">送出</button>
       </div>
     </form>
+    
     <!-- 表單驗證 -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <style>
