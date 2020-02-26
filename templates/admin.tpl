@@ -30,6 +30,8 @@
         <div class="col-sm-9">
           <{if $WEB.file_name == "user.php"}>
             <{include file="tpl/user.tpl"}>
+          <{else if $WEB.file_name == "prod.php"}>
+            <{include file="tpl/prod.tpl"}>
           <{/if}>
         </div>
         <div class="col-sm-3">
@@ -40,6 +42,12 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <a href="index.php" class="btn-block">首頁</a>
+              </li>
+              <li class="list-group-item">
+                <a href="user.php" class="btn-block">會員管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="prod.php" class="btn-block">商品管理</a>
               </li>
               <li class="list-group-item">
                 <a href="http://localhost/adminer/adminer.php" class="btn-block" target="_black">資料庫管理</a>

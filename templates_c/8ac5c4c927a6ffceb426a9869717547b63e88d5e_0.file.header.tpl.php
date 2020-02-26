@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-20 14:40:24
+/* Smarty version 3.1.34-dev-7, created on 2020-02-26 20:42:32
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e4e8c480f5af3_44379621',
+  'unifunc' => 'content_5e5667b837ea86_75682054',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e4e8c480f5af3_44379621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5667b837ea86_75682054 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background: rgba(244, 98, 58, 0.9);">
   <div class="container">
