@@ -1,13 +1,14 @@
 <{if $op == "op_list"}>
   <table class="table table-striped table-bordered table-hover table-sm">
-    <thead class="thead-dark">
+    <thead class="thead-light text-center">
       <tr>
+        <th scope="col" width="85px">圖片</th>
         <th scope="col">標題</th>
-        <th scope="col" class="text-center">分類</th>
-        <th scope="col" class="text-right">價格</th>
-        <th scope="col" class="text-right">狀態</th>
-        <th scope="col" class="text-center">計數</th>
-        <th scope="col" class="text-center">
+        <th scope="col">分類</th>
+        <th scope="col">價格</th>
+        <th scope="col">狀態</th>
+        <th scope="col">計數</th>
+        <th scope="col">
           <a href="prod.php?op=op_form"><i class="fas fa-plus"></i>新增</a>
         </th>
       </tr>
@@ -15,19 +16,20 @@
     <tbody>
       <{foreach $rows as $row}>
         <tr>
-          <td><{$row.title}></td>
-          <td class="text-center"><{$row.kind_sn}></td>
-          <td class="text-right"><{$row.price}></td>
-          <td class="text-right"><{if $row.enable}><i class="fas fa-check"></i><{/if}></td>
-          <td class="text-center"><{$row.counter}></td>
-          <td class="text-center">
+          <td class="align-middle text-center"><img src="<{$row.prod}>" alt="<{$row.title}>" width="80px"></td>
+          <td class="align-middle text-center"><{$row.title}></td>
+          <td class="align-middle text-center"><{$row.kind_sn}></td>
+          <td class="align-middle text-right"><{$row.price}></td>
+          <td class="align-middle text-center"><{if $row.enable}><i class="fas fa-check"></i><{/if}></td>
+          <td class="align-middle text-center"><{$row.counter}></td>
+          <td class="align-middle text-center">
             <a href="prod.php?op=op_form&sn=<{$row.sn}>"><i class="fas fa-edit"></i></a>
             <a href="javascript:void(0);" onclick="op_delete(<{$row.sn}>);"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
       <{foreachelse}>
         <tr>
-          <td colspan="6" class="text-center">目前沒有資料</td>
+          <td colspan="7" class="text-center">目前沒有資料</td>
         </tr>
       <{/foreach}>
     </tbody>
@@ -45,7 +47,7 @@
         cancelButtonText: '取消'
       }).then((result) => {
       if (result.value) {
-        document.location.href="user.php?op=op_delete&sn="+sn;
+        document.location.href="prod.php?op=op_delete&sn="+sn;
       }
       })
     }
@@ -54,7 +56,6 @@
 
 <{if $op == "op_form"}>
   <div class="container" style="margin: 100px auto 0px auto;">
-    <h1 class="text-center">商品管理表單</h1>
     
     <form action="prod.php" method="post" id="myForm" class="mb-20" enctype="multipart/form-data">
     
@@ -65,12 +66,16 @@
             <label>標題<span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="title" id="title" value="<{$row.title}>">
           </div>
-        </div>         
+        </div>
         <!--分類-->
         <div class="col-sm-4">
           <div class="form-group">
             <label>分類</label>
-            <input type="text" class="form-control" name="kind_sn" id="kind_sn" value="<{$row.kind_sn}>">
+            <select class="form-control" name="kind_sn" id="kind_sn">
+              <{foreach $row.kind_sn_options as $option}>
+                <option value="<{$option.sn}>"<{if $option.sn == $row.kind_sn}>selected<{/if}>><{$option.title}></option>
+              <{/foreach}>
+            </select>
           </div>
         </div>
         <!-- 商品狀態  -->

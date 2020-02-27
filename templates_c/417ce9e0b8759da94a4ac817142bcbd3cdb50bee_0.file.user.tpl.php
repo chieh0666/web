@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-26 20:35:48
+/* Smarty version 3.1.34-dev-7, created on 2020-02-28 03:34:28
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e566624395407_67655021',
+  'unifunc' => 'content_5e5819c4d3cbe8_71555354',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '417ce9e0b8759da94a4ac817142bcbd3cdb50bee' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\tpl\\user.tpl',
-      1 => 1582185108,
+      1 => 1582832068,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e566624395407_67655021 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5819c4d3cbe8_71555354 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['op']->value == "op_list") {?>
   <table class="table table-striped table-bordered table-hover table-sm">
-    <thead class="thead-dark">
+    <thead class="thead-light text-center">
       <tr>
         <th scope="col">帳號</th>
         <th scope="col">姓名</th>
@@ -39,7 +39,7 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
 ?>
-        <tr>
+        <tr class="text-center">
           <td><?php echo $_smarty_tpl->tpl_vars['row']->value['uname'];?>
 </td>
           <td><?php echo $_smarty_tpl->tpl_vars['row']->value['name'];?>
@@ -92,8 +92,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <?php if ($_smarty_tpl->tpl_vars['op']->value == "op_form") {?>
   <div class="container" style="margin: 100px auto 0px auto;">
-    <h1 class="text-center">會員表單</h1>
-    
+        
     <form action="user.php" method="post" id="myForm" class="mb-20" enctype="multipart/form-data">
     
       <div class="row">         

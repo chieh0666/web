@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-26 20:42:32
+/* Smarty version 3.1.34-dev-7, created on 2020-02-27 12:13:04
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5667b837ea86_75682054',
+  'unifunc' => 'content_5e5741d0ca9e96_00729741',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ac5c4c927a6ffceb426a9869717547b63e88d5e' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\tpl\\header.tpl',
-      1 => 1582206024,
+      1 => 1582776784,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5667b837ea86_75682054 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5741d0ca9e96_00729741 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background: rgba(244, 98, 58, 0.9);">
   <div class="container">
-    <a class="navbar-brand js-scroll-trigger" href="index.php">Start Bootstrap</a>
+    <a class="navbar-brand js-scroll-trigger" href="index.php"><?php echo $_smarty_tpl->tpl_vars['WEB']->value['web_title'];?>
+</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -1,6 +1,6 @@
 <{if $op == "op_list"}>
   <table class="table table-striped table-bordered table-hover table-sm">
-    <thead class="thead-dark">
+    <thead class="thead-light text-center">
       <tr>
         <th scope="col">帳號</th>
         <th scope="col">姓名</th>
@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <{foreach $rows as $row}>
-        <tr>
+        <tr class="text-center">
           <td><{$row.uname}></td>
           <td><{$row.name}></td>
           <td><{$row.tel}></td>
@@ -52,8 +52,7 @@
 
 <{if $op == "op_form"}>
   <div class="container" style="margin: 100px auto 0px auto;">
-    <h1 class="text-center">會員表單</h1>
-    
+        
     <form action="user.php" method="post" id="myForm" class="mb-20" enctype="multipart/form-data">
     
       <div class="row">         

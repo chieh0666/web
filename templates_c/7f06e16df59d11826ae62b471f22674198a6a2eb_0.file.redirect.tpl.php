@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-26 20:14:28
+/* Smarty version 3.1.34-dev-7, created on 2020-02-27 11:58:02
   from 'E:\ugm\xampp\htdocs\web\templates\tpl\redirect.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e566124accaf0_17936934',
+  'unifunc' => 'content_5e573e4aeea781_57682628',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e566124accaf0_17936934 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e573e4aeea781_57682628 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['redirect']->value) {?>
   <!-- sweetalert2 -->
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['xoAppUrl']->value;?>

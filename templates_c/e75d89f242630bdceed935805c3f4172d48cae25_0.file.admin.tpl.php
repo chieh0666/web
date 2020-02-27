@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-26 20:14:28
+/* Smarty version 3.1.34-dev-7, created on 2020-02-28 00:51:02
   from 'E:\ugm\xampp\htdocs\web\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5661248d3196_55694586',
+  'unifunc' => 'content_5e57f376ce5253_80046485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e75d89f242630bdceed935805c3f4172d48cae25' => 
     array (
       0 => 'E:\\ugm\\xampp\\htdocs\\web\\templates\\admin.tpl',
-      1 => 1582684506,
+      1 => 1582822262,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tpl/redirect.tpl' => 1,
     'file:tpl/user.tpl' => 1,
     'file:tpl/prod.tpl' => 1,
+    'file:tpl/kind.tpl' => 1,
   ),
 ),false)) {
-function content_5e5661248d3196_55694586 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e57f376ce5253_80046485 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +49,8 @@ bootstrap/popper.min.js"><?php echo '</script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['xoImgUrl']->value;?>
 bootstrap/bootstrap.min.js"><?php echo '</script'; ?>
 >
-    <title>會員管理</title>
+    <title><?php echo $_smarty_tpl->tpl_vars['WEB']->value['web_title'];?>
+</title>
     <!-- Font Awesome Icons -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['xoImgUrl']->value;?>
 vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,7 +67,8 @@ class/sweetalert2/sweetalert2.min.js"><?php echo '</script'; ?>
         <?php $_smarty_tpl->_subTemplateRender("file:tpl/redirect.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-    <h1 class="text-center mt-2">管理者後台</h1>
+    <h1 class="text-center mt-2"><?php echo $_smarty_tpl->tpl_vars['WEB']->value['web_title'];?>
+</h1>
     <div class="container">
       <div class="row">
         <div class="col-sm-9">
@@ -74,6 +77,9 @@ class/sweetalert2/sweetalert2.min.js"><?php echo '</script'; ?>
 ?>
           <?php } elseif ($_smarty_tpl->tpl_vars['WEB']->value['file_name'] == "prod.php") {?>
             <?php $_smarty_tpl->_subTemplateRender("file:tpl/prod.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+          <?php } elseif ($_smarty_tpl->tpl_vars['WEB']->value['file_name'] == "kind.php") {?>
+            <?php $_smarty_tpl->_subTemplateRender("file:tpl/kind.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
           <?php }?>
         </div>
@@ -87,13 +93,16 @@ class/sweetalert2/sweetalert2.min.js"><?php echo '</script'; ?>
                 <a href="index.php" class="btn-block">首頁</a>
               </li>
               <li class="list-group-item">
+                <a href="http://localhost/adminer/adminer.php" class="btn-block" target="_black">資料庫管理</a>
+              </li>
+              <li class="list-group-item">
                 <a href="user.php" class="btn-block">會員管理</a>
               </li>
               <li class="list-group-item">
                 <a href="prod.php" class="btn-block">商品管理</a>
               </li>
               <li class="list-group-item">
-                <a href="http://localhost/adminer/adminer.php" class="btn-block" target="_black">資料庫管理</a>
+                <a href="kind.php" class="btn-block">類別管理</a>
               </li>
               <li class="list-group-item">
                 <a href="index.php?op=logout" class="btn-block">登出</a>
