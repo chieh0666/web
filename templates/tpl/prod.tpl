@@ -139,6 +139,19 @@
           </div>
         </div>
       </div>
+      <!-- ckeditor -->
+      <script src="<{$xoAppUrl}>class/ckeditor/ckeditor.js"></script>
+      <script>
+          CKEDITOR.replace('content');
+      </script>
+
+      <script>
+        CKEDITOR.replace('content',{
+            height:500,
+            contentsCss: ['<{$xoImgUrl}>css/creative.min.js'] //引入前台樣板css
+        });
+      </script>
+
       <div class="text-center pb-20">
         <input type="hidden" name="op" value="<{$row.op}>">
         <input type="hidden" name="sn" value="<{$row.sn}>">

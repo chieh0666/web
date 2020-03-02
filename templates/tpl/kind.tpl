@@ -5,7 +5,7 @@
         <th scope="col">標題</th>
         <th scope="col">狀態</th>
         <th scope="col">
-          <a href="kind.php?op=op_form&kind={$kind}"><i class="fas fa-plus"></i>新增</a>
+          <a href="kind.php?op=op_form&kind=<{$kind}>"><i class="fas fa-plus"></i>新增</a>
         </th>
       </tr>
     </thead>
@@ -66,10 +66,10 @@
             <input type="text" class="form-control" name="sort" id="sort" value="<{$row.sort}>">
           </div>
         </div>
-        <!-- 商品狀態  -->
+        <!-- 類別狀態 -->
         <div class="col-sm-4">
           <div class="form-group">
-            <label style="display:block;">商品狀態</label>
+            <label style="display:block;">類別狀態</label>
             <input type="radio" name="enable" id="enable_1" value="1" <{if $row.enable == '1'}>checked<{/if}>>
             <label for="enable_1" style="display:inline;">啟用</label>&nbsp;&nbsp;
             <input type="radio" name="enable" id="enable_0" value="0" <{if $row.enable == '0'}>checked<{/if}>>

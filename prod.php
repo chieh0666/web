@@ -61,25 +61,6 @@ function op_delete($sn){
   return "商品資料刪除成功";
 }
 
-/*==========================
-  用$kind,$col_sn,$sort
-  刪除 圖片資料
-==========================*/
-function delFilesByKindColsnSort($kind,$col_sn,$sort){
-  global $db;		
-  # 1.刪除實體檔案
-  $file_name = getFilesByKindColsnSort($kind,$col_sn,$sort,false);
-  if($file_name){
-    unlink($file_name);
-  }
-  # 2.刪除files資料表	
-  $sql="DELETE FROM `files`
-        WHERE `kind` = '{$kind}' AND `col_sn` = '{$col_sn}' AND `sort` = '{$sort}'
-  ";
-  $db->query($sql) or die($db->error() . $sql);	
-  return;	 
-}
-
 /*=======================
 更新商品函式(寫入資料庫)
 =======================*/
@@ -178,25 +159,6 @@ function op_insert($sn=""){
 
 }
 
-/*========================================
-  用kind col_sn sort 取得圖片資料
-========================================*/ 
-function getFilesByKindColsnSort($kind, $col_sn, $sort = 1, $url = true){
-  global $db; 
-  $sql="SELECT *
-    FROM `files`
-    WHERE `kind` = '{$kind}' AND `col_sn` = '{$col_sn}' AND `sort` = '{$sort}'
-  ";     
-  $result = $db->query($sql) or die($db->error() . $sql);
-  $row = $result->fetch_assoc();
-  if($url){
-      $file_name = _WEB_URL . "/uploads" . $row['sub_dir'] . "/" . $row['name'];
-  }else{
-      $file_name = _WEB_PATH . "/uploads" . $row['sub_dir'] . "/" . $row['name'];
-  }
-  return $file_name;
-}
-
 /*===========================
   用sn取得商品檔資料
 ===========================*/
@@ -234,6 +196,20 @@ function getProdsOptions($kind){
   return $rows;
 }
 
+/*================================
+  取得商品數量的最大值
+================================*/
+function getProdsMaxSort(){
+  global $db;
+  $sql = "SELECT count(*)+1 as count
+          FROM `prods`
+  ";//die($sql);
+
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $row = $result->fetch_assoc();
+  return $row['count'];
+}
+
 function op_form($sn=""){
   global $smarty,$db;
 
@@ -259,7 +235,7 @@ function op_form($sn=""){
   $row['date'] = isset($row['date']) ? $row['date'] : strtotime("now");
   $row['date'] = date("Y-m-d H:i:s",$row['date']);
 
-  $row['sort'] = isset($row['sort']) ? $row['sort'] : "";
+  $row['sort'] = isset($row['sort']) ? $row['sort'] : getProdsMaxSort();
   $row['counter'] = isset($row['counter']) ? $row['counter'] : "";
 
   $row['prod'] = isset($row['prod']) ? $row['prod'] : "";
@@ -283,8 +259,8 @@ function op_list(){
     $row['kind_sn'] = (int)$row['kind_sn']; //類別
     $row['price'] = (int)$row['price']; //價格
     $row['enable'] = (int)$row['enable']; //狀態
-    $row['counter'] = (int)$row['counter']; //計數    
-    $row['prod'] = getFilesByKindColsnSort("prod",$row['sn']);
+    $row['counter'] = (int)$row['counter']; //計數
+    $row['prod'] = getFilesByKindColsnSort("prod",$row['sn']); //圖片
     $rows[] = $row;
   }
   $smarty->assign("rows", $rows);

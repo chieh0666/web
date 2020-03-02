@@ -34,6 +34,10 @@
             <{include file="tpl/prod.tpl"}>
           <{else if $WEB.file_name == "kind.php"}>
             <{include file="tpl/kind.tpl"}>
+          <{else if $WEB.file_name == "menu.php"}>
+            <{include file="tpl/menu.tpl"}>
+          <{else if $WEB.file_name == "slide.php"}>
+            <{include file="tpl/slide.tpl"}>
           <{/if}>
         </div>
         <div class="col-sm-3">
@@ -56,6 +60,12 @@
               </li>
               <li class="list-group-item">
                 <a href="kind.php" class="btn-block">類別管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="menu.php" class="btn-block">選單管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="slide.php" class="btn-block">輪播圖管理</a>
               </li>
               <li class="list-group-item">
                 <a href="index.php?op=logout" class="btn-block">登出</a>
