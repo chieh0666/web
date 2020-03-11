@@ -104,13 +104,13 @@ function db_filter($var, $title = '', $filter = ''){
   $var = $db->real_escape_string($var);
 
   if($title){
-    if($var === "")redirect_header("index.php?op=reg_form", $title . '為必填！', 2000, "warning");
+    if($var === "")redirect_header("index.php", $title . '為必填！', 2000, "warning");
   }
 
   if ($filter) {
     $var = filter_var($var, $filter);
     if (!$var) {
-      redirect_header("index.php?op=reg_form", "不合法的{$title}", 2000, "warning");
+      redirect_header("index.php", "不合法的{$title}", 2000, "warning");
     }
   }
   return $var;
@@ -152,4 +152,79 @@ function delFilesByKindColsnSort($kind,$col_sn,$sort){
   ";
   $db->query($sql) or die($db->error() . $sql);	
   return;	 
+}
+
+function getMenus($kind,$pic=false){
+
+  global $db;
+  
+  $sql = "SELECT *
+          FROM `kinds`
+          WHERE `kind`='{$kind}' and `enable`='1'
+          ORDER BY `sort`
+  ";//die($sql);
+
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $rows=[];//array();
+  while($row = $result->fetch_assoc()){    
+    $row['sn'] = (int)$row['sn'];//分類
+    $row['title'] = htmlspecialchars($row['title']);//標題
+    $row['enable'] = (int)$row['enable'];//狀態
+    $row['url'] = htmlspecialchars($row['url']);//網址
+    $row['target'] = (int)$row['target'];//外連
+    $row['pic'] = ($pic == true) ? getFilesByKindColsnSort($kind,$row['sn']) :"";//圖片連結
+    $rows[] = $row;
+  }
+  return $rows;
+}
+
+/*===========================
+  用sn取得商品檔資料
+===========================*/
+function getProdsBySn($sn){
+  global $db;
+  $sql="SELECT *
+        FROM `prods`
+        WHERE `sn` = '{$sn}'
+  ";//die($sql);  
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $row = $result->fetch_assoc();
+  $row['prod'] = getFilesByKindColsnSort("prod",$sn);
+  return $row;
+}
+
+/*===========================
+  用sn取得新聞檔資料
+===========================*/
+function getNewsBySn($sn){
+  global $db;
+  $sql="SELECT *
+        FROM `news`
+        WHERE `sn` = '{$sn}'
+  ";//die($sql);  
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $row = $result->fetch_assoc();
+  $row['news'] = getFilesByKindColsnSort("news",$sn);
+  return $row;
+}
+
+/*===========================
+  取得商品檔類別選項
+===========================*/
+function getProdsOptions($kind){
+  global $db;
+
+  $sql = "SELECT `sn`, `title`
+          FROM `kinds`
+          WHERE `kind` = '{$kind}' AND `enable` = '1'
+          ORDER BY `sort`
+  ";
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $rows=[];//array();
+  while($row = $result->fetch_assoc()){
+    $row['sn'] = (int)$row['sn'];//分類
+    $row['title'] = htmlspecialchars($row['title']);//標題
+    $rows[] = $row;
+  }
+  return $rows;
 }

@@ -36,6 +36,12 @@
             <{include file="tpl/kind.tpl"}>
           <{else if $WEB.file_name == "menu.php"}>
             <{include file="tpl/menu.tpl"}>
+          <{else if $WEB.file_name == "contact.php"}>
+            <{include file="tpl/contact.tpl"}>
+          <{else if $WEB.file_name == "order.php"}>
+            <{include file="tpl/order.tpl"}>
+          <{else if $WEB.file_name == "news.php"}>
+            <{include file="tpl/news.tpl"}>
           <{else if $WEB.file_name == "slide.php"}>
             <{include file="tpl/slide.tpl"}>
           <{/if}>
@@ -63,6 +69,15 @@
               </li>
               <li class="list-group-item">
                 <a href="menu.php" class="btn-block">選單管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="contact.php" class="btn-block">留言管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="order.php" class="btn-block">訂單管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="news.php" class="btn-block">最新消息管理</a>
               </li>
               <li class="list-group-item">
                 <a href="slide.php" class="btn-block">輪播圖管理</a>

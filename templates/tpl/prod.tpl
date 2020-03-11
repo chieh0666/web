@@ -5,7 +5,7 @@
         <th scope="col" width="85px">圖片</th>
         <th scope="col">標題</th>
         <th scope="col">分類</th>
-        <th scope="col">價格</th>
+        <th scope="col" class="text-right">價格</th>
         <th scope="col">狀態</th>
         <th scope="col">計數</th>
         <th scope="col">
@@ -18,7 +18,7 @@
         <tr>
           <td class="align-middle text-center"><img src="<{$row.prod}>" alt="<{$row.title}>" width="80px"></td>
           <td class="align-middle text-center"><{$row.title}></td>
-          <td class="align-middle text-center"><{$row.kind_sn}></td>
+          <td class="align-middle text-center"><{$row.kinds_title}></td>
           <td class="align-middle text-right"><{$row.price}></td>
           <td class="align-middle text-center"><{if $row.enable}><i class="fas fa-check"></i><{/if}></td>
           <td class="align-middle text-center"><{$row.counter}></td>
@@ -52,8 +52,8 @@
       })
     }
   </script>
+<{$bar}>
 <{/if}>
-
 <{if $op == "op_form"}>
   <div class="container" style="margin: 100px auto 0px auto;">
     
@@ -139,17 +139,16 @@
           </div>
         </div>
       </div>
+      
       <!-- ckeditor -->
       <script src="<{$xoAppUrl}>class/ckeditor/ckeditor.js"></script>
       <script>
-          CKEDITOR.replace('content');
-      </script>
-
-      <script>
-        CKEDITOR.replace('content',{
-            height:500,
-            contentsCss: ['<{$xoImgUrl}>css/creative.min.js'] //引入前台樣板css
-        });
+          CKEDITOR.replace('content',{
+              height:500,//高度
+              contentsCss: ['<{$xoImgUrl}>css/creative.css'],//前台樣板css
+              removeDialogTabs: 'image:Link',//取消連結 //link:target;link:advanced;image:advanced
+              filebrowserBrowseUrl: '<{$xoAppUrl}>class/elfinder.php?type=image'//呼叫elfinder.php
+          });
       </script>
 
       <div class="text-center pb-20">

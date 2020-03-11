@@ -159,43 +159,6 @@ function op_insert($sn=""){
 
 }
 
-/*===========================
-  用sn取得商品檔資料
-===========================*/
-function getProdsBySn($sn){
-  global $db;
-  $sql="SELECT *
-        FROM `prods`
-        WHERE `sn` = '{$sn}'
-  ";//die($sql);
-  
-  $result = $db->query($sql) or die($db->error() . $sql);
-  $row = $result->fetch_assoc();
-  $row['prod'] = getFilesByKindColsnSort("prod",$sn);
-  return $row;
-}
-
-/*===========================
-  取得商品檔類別選項
-===========================*/
-function getProdsOptions($kind){
-  global $db;
-
-  $sql = "SELECT `sn`, `title`
-          FROM `kinds`
-          WHERE `kind` = '{$kind}' AND `enable` = '1'
-          ORDER BY `sort`
-  ";
-  $result = $db->query($sql) or die($db->error() . $sql);
-  $rows=[];//array();
-  while($row = $result->fetch_assoc()){
-    $row['sn'] = (int)$row['sn'];//分類
-    $row['title'] = htmlspecialchars($row['title']);//標題
-    $rows[] = $row;
-  }
-  return $rows;
-}
-
 /*================================
   取得商品數量的最大值
 ================================*/
@@ -247,9 +210,21 @@ function op_list(){
   // `kind_sn`, `title`, `content`, `price`, `enable`, `date`, `sort`, `counter`
   global $smarty, $db;
 
-  $sql = "SELECT * 
-          FROM `prods`
-  ";
+  
+  $sql = "SELECT a.*,b.title as kinds_title
+          FROM `prods` as a
+          LEFT JOIN `kinds` as b on a.kind_sn=b.sn
+  ";//die($sql);
+
+  #---分頁套件(原始$sql 不要設 limit)
+  include_once _WEB_PATH."/class/PageBar/PageBar.php";
+  $pageCount = 5;
+  $PageBar = getPageBar($db, $sql, $pageCount, 10);
+  $sql     = $PageBar['sql'];
+  $total   = $PageBar['total'];
+  $bar     = ($total > $pageCount) ? $PageBar['bar'] : "";
+  $smarty->assign("bar",$bar);  
+  #---分頁套件(end)
 
   $result = $db->query($sql) or die($db->error() . $sql);
   $rows = [];
@@ -261,6 +236,7 @@ function op_list(){
     $row['enable'] = (int)$row['enable']; //狀態
     $row['counter'] = (int)$row['counter']; //計數
     $row['prod'] = getFilesByKindColsnSort("prod",$row['sn']); //圖片
+    $row['kinds_title'] = htmlspecialchars($row['kinds_title']);//標題
     $rows[] = $row;
   }
   $smarty->assign("rows", $rows);

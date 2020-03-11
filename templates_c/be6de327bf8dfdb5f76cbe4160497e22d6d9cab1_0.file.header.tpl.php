@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-01 08:44:13
+/* Smarty version 3.1.34-dev-7, created on 2020-03-02 22:08:45
   from 'C:\Users\JERRY\Desktop\xampp\htdocs\web\templates\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5b055daebe55_76562687',
+  'unifunc' => 'content_5e5d136d02a5b4_17874899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'be6de327bf8dfdb5f76cbe4160497e22d6d9cab1' => 
     array (
       0 => 'C:\\Users\\JERRY\\Desktop\\xampp\\htdocs\\web\\templates\\tpl\\header.tpl',
-      1 => 1582776784,
+      1 => 1583158088,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5b055daebe55_76562687 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d136d02a5b4_17874899 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background: rgba(244, 98, 58, 0.9);">
   <div class="container">
@@ -31,21 +31,20 @@ function content_5e5b055daebe55_76562687 (Smarty_Internal_Template $_smarty_tpl)
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="index.php#about">關於我們</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="index.php#services">服務</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="index.php#portfolio">產品</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="index.php#contact">聯絡方式</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="index.php?op=contact_form">聯絡我們</a>
-        </li>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['mainMenus']->value, 'mainMenu');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['mainMenu']->value) {
+?>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="<?php echo $_smarty_tpl->tpl_vars['mainMenu']->value['url'];?>
+" <?php if ($_smarty_tpl->tpl_vars['mainMenu']->value['target'] == 1) {?>target="_blank"<?php }?>><?php echo $_smarty_tpl->tpl_vars['mainMenu']->value['title'];?>
+</a>
+          </li>
+        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <?php if ($_SESSION['user']['kind'] === 1) {?>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="user.php">管理後台</a>

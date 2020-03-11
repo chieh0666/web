@@ -1,7 +1,7 @@
 <?php
 /* 引入檔頭，每支程都會引入 */
 require_once 'head.php';
- 
+
 #沒有權限就踢走
 if($_SESSION['user']['kind'] !== 1)redirect_header("index.php", '您沒有權限', 2000, "warning");
 
@@ -9,7 +9,20 @@ if($_SESSION['user']['kind'] !== 1)redirect_header("index.php", '您沒有權限
 $op = system_CleanVars($_REQUEST, 'op', 'op_list', 'string');
 $sn = system_CleanVars($_REQUEST, 'sn', '', 'int');
 $kind = system_CleanVars($_REQUEST, 'kind', 'mainMenu', 'string');
-$kind = "mainMenu";
+// $kinds = ["mainMenu","cartMenu"];
+
+$kinds[] = array(
+  "value" => "mainMenu",
+  "title" => "主選單"
+);
+$kinds[] = array(
+  "value" => "cartMenu",
+  "title" => "購物車選單"
+);
+$smarty->assign("kinds", $kinds);
+
+#防呆
+$kind = (in_array($kind, array_keys($kinds))) ? $kind : "mainMenu";
 
 /* 程式流程 */
 switch ($op){

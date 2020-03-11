@@ -67,7 +67,18 @@
         },
         rules: {
             "uname" : {
-              required: true
+              required: true,
+              remote: {
+                url: "index.php",
+                type: "post",               //方法
+                dataType: "json",           //接受数据格式
+                data: {                     //資料
+                  "op" : "checkUname",
+                  "uname" : function() {
+                    return $("#uname").val();
+                  }
+                }
+              }
             },
             "pass" : {
               required: true
@@ -88,7 +99,8 @@
         },
         messages: {
           "uname" : {
-            required: "必填"
+            required: "必填",
+            remote: "這個帳號已經有人使用"
           },
           "pass" : {
             required: "必填"

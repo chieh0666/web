@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-01 08:45:41
+/* Smarty version 3.1.34-dev-7, created on 2020-03-02 22:08:51
   from 'C:\Users\JERRY\Desktop\xampp\htdocs\web\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5b05b5930740_78311164',
+  'unifunc' => 'content_5e5d1373950be4_86410063',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9dbd593bcac16f486c938719277c5f2d8d0ad19d' => 
     array (
       0 => 'C:\\Users\\JERRY\\Desktop\\xampp\\htdocs\\web\\templates\\admin.tpl',
-      1 => 1582822262,
+      1 => 1583158088,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:tpl/user.tpl' => 1,
     'file:tpl/prod.tpl' => 1,
     'file:tpl/kind.tpl' => 1,
+    'file:tpl/menu.tpl' => 1,
+    'file:tpl/slide.tpl' => 1,
   ),
 ),false)) {
-function content_5e5b05b5930740_78311164 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d1373950be4_86410063 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,6 +83,12 @@ class/sweetalert2/sweetalert2.min.js"><?php echo '</script'; ?>
           <?php } elseif ($_smarty_tpl->tpl_vars['WEB']->value['file_name'] == "kind.php") {?>
             <?php $_smarty_tpl->_subTemplateRender("file:tpl/kind.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+          <?php } elseif ($_smarty_tpl->tpl_vars['WEB']->value['file_name'] == "menu.php") {?>
+            <?php $_smarty_tpl->_subTemplateRender("file:tpl/menu.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+          <?php } elseif ($_smarty_tpl->tpl_vars['WEB']->value['file_name'] == "slide.php") {?>
+            <?php $_smarty_tpl->_subTemplateRender("file:tpl/slide.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
           <?php }?>
         </div>
         <div class="col-sm-3">
@@ -103,6 +111,12 @@ class/sweetalert2/sweetalert2.min.js"><?php echo '</script'; ?>
               </li>
               <li class="list-group-item">
                 <a href="kind.php" class="btn-block">類別管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="menu.php" class="btn-block">選單管理</a>
+              </li>
+              <li class="list-group-item">
+                <a href="slide.php" class="btn-block">輪播圖管理</a>
               </li>
               <li class="list-group-item">
                 <a href="index.php?op=logout" class="btn-block">登出</a>

@@ -8,6 +8,24 @@ $sn = system_CleanVars($_REQUEST, 'sn', '', 'int');
 
 /* 程式流程 */
 switch ($op){
+
+  case "checkUname" :
+    echo json_encode(checkUname());
+    exit;
+
+  case "news_list" :
+    $msg = news_list();
+    break;
+  
+  case "contact_insert" :
+    $msg = contact_insert();
+    redirect_header("index.php", $msg , 4500, "success");
+    exit;
+
+  case "contact_form" :
+    $msg = contact_form();
+    break;
+
   case "login" :
     $msg = login();
     //(轉向頁面,訊息,時間)
@@ -26,14 +44,6 @@ switch ($op){
     redirect_header("index.php", '註冊成功', 2000, "success");
     exit;
 
-  case "contact_form" :
-    $msg = contact_form();
-    break;
-
-  case "ok" :
-    $msg = ok();
-    break;
-
   case "login_form" :
     $msg = login_form();
     break;
@@ -43,7 +53,7 @@ switch ($op){
     break;
 
   default:
-    $op = "op_list";    
+    $op = "op_list";
     $mainSlides = getMenus("mainSlide",true);
     $smarty->assign("mainSlides", $mainSlides);
     break;
@@ -61,32 +71,90 @@ $smarty->display('theme.tpl');
 
 /*---- 函數區-----*/
 
-function getMenus($kind,$pic=false){
-
+/*####################################################
+  AJAX 檢查帳號是否重覆
+  驗證不過 => false ， 驗證通過 => true
+####################################################*/
+function checkUname() {
   global $db;
+  $uname = system_CleanVars($_REQUEST, 'uname', '', 'string');
+
+  if(check_uname($uname)){
+    return false;//帳號有人使用，驗證不過
+  }
+  return true;
+}
+
+/*=======================
+  檢查帳號是否有人使用
+  有人使用 傳回 true
+  無人使用 傳回 false
+=======================*/
+function check_uname($uname){
+  global $db;
+  $sql="SELECT count(*) as count
+        FROM `users`
+        WHERE `uname`='{$uname}'
+  ";    
+  $result = $db->query($sql) or die($db->error() . $sql);
+  $row = $result->fetch_assoc();
+
+  if($row['count'])return true;
+  return false;  
+}
+
+function news_list(){
+  global $db,$smarty;
   
-  $sql = "SELECT *
-          FROM `kinds`
-          WHERE `kind`='{$kind}' and `enable`='1'
-          ORDER BY `sort`
+  $sql = "SELECT * 
+          FROM `news`
   ";//die($sql);
 
+  #---分頁套件(原始$sql 不要設 limit)
+  include_once _WEB_PATH."/class/PageBar/PageBar.php";
+  $pageCount = 10;
+  $PageBar = getPageBar($db, $sql, $pageCount, 10);
+  $sql     = $PageBar['sql'];
+  $total   = $PageBar['total'];
+  $bar     = ($total > $pageCount) ? $PageBar['bar'] : "";
+  $smarty->assign("bar",$bar);  
+  #---分頁套件(end)
+
   $result = $db->query($sql) or die($db->error() . $sql);
-  $rows=[];//array();
-  while($row = $result->fetch_assoc()){    
-    $row['sn'] = (int)$row['sn'];//分類
-    $row['title'] = htmlspecialchars($row['title']);//標題
-    $row['enable'] = (int)$row['enable'];//狀態
-    $row['url'] = htmlspecialchars($row['url']);//網址
-    $row['target'] = (int)$row['target'];//外連
-    $row['pic'] = ($pic == true) ? getFilesByKindColsnSort($kind,$row['sn']) :"";//圖片連結
+  $rows = [];
+  while($row = $result->fetch_assoc()){
+    $row['sn'] = (int)$row['sn']; //類別
+    $row['title'] = htmlspecialchars($row['title']); //標題
+    $row['counter'] = (int)$row['counter']; //計數
+    $row['news'] = getFilesByKindColsnSort("news",$row['sn']); //圖片
     $rows[] = $row;
   }
-  return $rows;
+
+  $smarty->assign("rows", $rows);
+}
+
+function contact_insert(){
+  global $db;
+    
+  $_POST['name'] = db_filter($_POST['name'], '姓名');
+  $_POST['tel'] = db_filter($_POST['tel'], '電話');
+  $_POST['email'] = db_filter($_POST['email'], 'email');
+  $_POST['content'] = db_filter($_POST['content'], '聯絡事項');
+  $_POST['date'] = strtotime("now");
+  
+  $sql="INSERT INTO `contacts` 
+                    (`name`, `tel`, `email`, `content`, `date`)
+                    VALUES 
+                    ('{$_POST['name']}', '{$_POST['tel']}', '{$_POST['email']}', '{$_POST['content']}', '{$_POST['date']}')  
+  ";
+  $result = $db->query($sql) or die($db->error() . $sql);
+  return "我們已收到您的聯絡事項，將儘快與您聯絡！";
 }
 
 function contact_form(){
-
+  global $smarty;
+  $row['op'] = "contact_insert";
+  $smarty->assign("row", $row);
 }
 
 function ok(){
